@@ -14,7 +14,7 @@ import requests
 import time
 from zipfile import ZipFile
 
-
+# to check if url works correctly
 def url_checker(url):
 	try:
 		get = requests.get(url)
@@ -27,7 +27,7 @@ def url_checker(url):
 
     
 
-
+#to download latest bhav file
 def latest_bhav_file():
     link=""
     chrome_options = ChromeOptions()
@@ -59,6 +59,7 @@ def latest_bhav_file():
         with ZipFile(link[link.rfind('/')+1:], 'r') as zObject:
             zObject.extractall()
 
+# to find latest and oldest bhav file (after downloading all bhav of last 30 days) 
 def oldest_latest():
     today=datetime.now()
     directory=os.getcwd()
@@ -78,6 +79,7 @@ def oldest_latest():
             oldest=out
     return oldest,latest
 
+
 def download_file(url,filename=''):
     driver=Chrome(executable_path="C:/Users/omdod/Downloads/chromedriver_win32/chromedriver")
     driver.get(url)
@@ -90,7 +92,7 @@ def download_file(url,filename=''):
             break
     driver.quit()
         
-
+# to download all the bhav files from recent 30 days
 def recent_bhav_30():
     chrome_options = ChromeOptions()
     os.mkdir("bhav_last_30")
