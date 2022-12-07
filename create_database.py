@@ -15,7 +15,7 @@ from zipfile import ZipFile
 from File_Functions import oldest_latest
 
 
-
+# to find top gainers
 def find_top_25():
     output=[]
     conn=msql.connect(host='localhost', database='NSE', user='root', password='')
@@ -71,7 +71,9 @@ def csv_to_database():
                     conn.commit()
         except Error as e:
             print("Error while connecting to MySQL", e)
-
+            
+            
+# to find top gainers of recent 30 days
 def top25_for_last30():
     f_output={}
     directory=os.getcwd()
@@ -85,6 +87,8 @@ def top25_for_last30():
             f_output[date]=top_gainers_of_day(path+'\\'+f)
     return f_output
 
+
+# to find top gainers for a given day
 def top_gainers_of_day(filep):
     output=[]
     if filep:
@@ -131,6 +135,7 @@ def top_gainers_of_day(filep):
         except Error as e:
             print("Error while connecting to MySQL", e)
 
+# find top gainers usinig the open of oldest bhav file and close of latest bhav file
 def openold_closelatest():
     oldest,latest=oldest_latest()
     print(oldest,latest)
