@@ -32,7 +32,7 @@ def latest_bhav_file():
     link=""
     chrome_options = ChromeOptions()
     # chrome_options.add_argument("--start-maximized")
-    prefs = {"download.default_directory": r"C:\Users\omdod\Desktop\Internship_Assignment\\"}
+    prefs = {"download.default_directory": os.getcwd()}
     chrome_options.add_experimental_option("prefs", prefs)
 
 
@@ -95,7 +95,7 @@ def recent_bhav_30():
     chrome_options = ChromeOptions()
     os.mkdir("bhav_last_30")
     # chrome_options.add_argument("--start-maximized")
-    prefs = {"download.default_directory": r"C:\Users\omdod\Desktop\Internship_Assignment\bhav_last_30\\"}
+    prefs = {"download.default_directory": os.getcwd()}
     chrome_options.add_experimental_option("prefs", prefs)
 
     
